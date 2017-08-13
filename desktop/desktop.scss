@@ -1,0 +1,127 @@
+
+.d-header .title a {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header-search-enabled #search-button {
+  display: none;
+}
+
+.search-header {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 550px;
+  width: 550px;
+  margin-left: 20px;
+  padding: 5px;
+  position: relative;
+  white-space: nowrap;
+
+  #search-term {
+    background-color: #f1f1f1;
+    height: 20px;
+    width: 73%;
+    margin-bottom: 0;
+    &.searching-background {
+      background-color:rgba(0, 136, 204, 0.2);
+      animation: leftRightBackground 2s linear infinite;
+      background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,.2) 20px, rgba(255,255,255,.2) 40px);
+    }
+  }
+
+  label {
+    margin: 0
+  }
+
+  .searching .spinner {
+    display: none;
+  }
+
+  .search-context {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 10px;
+  }
+
+  a.show-help {
+    position: absolute;
+    top: 11px;
+    right: 27%;
+    color: #C1C1C1;
+  }
+
+  .results {
+    background-color: #fff;
+    border-top: none;
+    box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.5);
+    width: 73%;
+    position: absolute;
+    top: 40px;
+    white-space: normal;
+
+    ul {
+      list-style-type: none;
+      margin: 0 5px 5px 5px;
+    }
+
+    .heading {
+      padding: 5px 0 5px 5px;
+      .filter {
+        padding: 0 5px;
+      }
+    }
+
+    .no-results {
+      padding: 5px;
+      text-align: center;
+    }
+
+    .search-link {
+      .badge-category-parent {
+        line-height: 0.8em;
+      }
+      .topic-title {
+        margin-right: 6px;
+      }
+
+      .topic-statuses {
+        float: none;
+        display: inline-block;
+        color: dark-light-choose(scale-color($primary, $lightness: 50%), scale-color($secondary, $lightness: 50%));
+        margin: 0;
+        .fa {
+          margin: 0;
+        }
+      }
+    }
+
+    li:not(.category):not(.heading) {
+      font-size: 0.929em;
+      line-height: 16px;
+
+      .fa {
+        font-size: inherit;
+      }
+
+      a {
+        display: block;
+        padding: 5px;
+        transition: all linear .15s;
+      }
+
+      &:hover a:not(.badge-notification) {
+        background-color: dark-light-diff($highlight, $secondary, 50%, -55%);
+      }
+
+      button {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+.btn.filter {
+  background-color: #0088cc;
+  color: #fff;
+}
