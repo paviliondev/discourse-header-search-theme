@@ -1,11 +1,10 @@
 <script>
+(function(){
 
 var withPluginApi = require('discourse/lib/plugin-api').withPluginApi;
 var SiteHeader = require('discourse/components/site-header').default;
 var wantsNewWindow = require('discourse/lib/intercept-click').wantsNewWindow;
 var DiscourseURL = require('discourse/lib/url').default;
-var computed = require('ember-addons/ember-computed-decorators').default;
-var on = require('ember-addons/ember-computed-decorators').on;
 
 SiteHeader.reopen({
   toggleVisibility(topicToggled) {
@@ -28,7 +27,6 @@ SiteHeader.reopen({
     }
   },
 
-  @on('didInsertElement')
   initSizeWatcher() {
     Ember.run.scheduleOnce('afterRender', () => {
       this.toggleVisibility();
@@ -36,12 +34,11 @@ SiteHeader.reopen({
     $(window).on('resize', Ember.run.bind(this, this.toggleVisibility));
     this.appEvents.on('header:show-topic', () => this.toggleVisibility(true));
     this.appEvents.on('header:hide-topic', () => this.toggleVisibility(true));
-  },
+  }.on('didInsertElement'),
 
-  @on('willDestroyElement')
   destroySizeWatcher() {
     $(window).off('resize', Ember.run.bind(this, this.toggleVisibility));
-  }
+  }.on('willDestroyElement')
 })
 
 const searchMenuWidget = container.factoryFor('widget:search-menu');
@@ -153,5 +150,7 @@ withPluginApi('0.8.9', api => {
     return false;
   })
 })
+
+})();
 
 </script>
