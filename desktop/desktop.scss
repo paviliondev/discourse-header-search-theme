@@ -1,4 +1,3 @@
-
 .d-header .title a {
   display: inline-block;
   vertical-align: middle;
@@ -23,11 +22,6 @@
     height: 20px;
     width: 73%;
     margin-bottom: 0;
-    &.searching-background {
-      background-color:rgba(0, 136, 204, 0.2);
-      animation: leftRightBackground 2s linear infinite;
-      background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,.2) 20px, rgba(255,255,255,.2) 40px);
-    }
   }
 
   label {
@@ -84,16 +78,6 @@
       .topic-title {
         margin-right: 6px;
       }
-
-      .topic-statuses {
-        float: none;
-        display: inline-block;
-        color: dark-light-choose(scale-color($primary, $lightness: 50%), scale-color($secondary, $lightness: 50%));
-        margin: 0;
-        .fa {
-          margin: 0;
-        }
-      }
     }
 
     li:not(.category):not(.heading) {
@@ -119,9 +103,4 @@
       }
     }
   }
-}
-
-.btn.filter {
-  background-color: #0088cc;
-  color: #fff;
 }
