@@ -136,15 +136,17 @@ api.decorateWidget('home-logo:after', function(helper) {
 const wantsNewWindow = require('discourse/lib/intercept-click').wantsNewWindow;
 const DiscourseURL = require('discourse/lib/url').default;
 
-api.reopenWidget('home-logo', 'click', function(e) {
-  if (wantsNewWindow(e)) return false;
-  e.preventDefault();
+api.reopenWidget('home-logo', {
+  click: function(e) {
+    if (wantsNewWindow(e)) return false;
+    e.preventDefault();
 
-  if (e.target.id === 'site-logo' || e.target.id === 'site-text-logo') {
-    DiscourseURL.routeTo(this.href());
+    if (e.target.id === 'site-logo' || e.target.id === 'site-text-logo') {
+      DiscourseURL.routeTo(this.href());
+    }
+
+    return false;
   }
-
-  return false;
 })
 
 </script>
