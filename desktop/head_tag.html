@@ -40,6 +40,8 @@ const searchMenuWidget = api.container.factoryFor('widget:search-menu');
 const corePanelContents = searchMenuWidget.class.prototype['panelContents'];
 
 api.reopenWidget('search-menu', {
+  tagName: 'div',
+
   buildKey: function(attrs) {
     let type = attrs.formFactor || 'menu'
     return `search-${type}`
@@ -52,9 +54,11 @@ api.reopenWidget('search-menu', {
     }
   },
 
-  html: function() {
-    this.tagName = `div.search-${this.state.formFactor}`;
+  buildClasses: function() {
+    return [`search-${this.state.formFactor}`];
+  },
 
+  html: function() {
     if (this.state.formFactor === 'header') {
       return this.panelContents();
     } else {
