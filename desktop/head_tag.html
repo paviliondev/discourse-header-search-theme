@@ -40,8 +40,6 @@ const searchMenuWidget = api.container.factoryFor('widget:search-menu');
 const corePanelContents = searchMenuWidget.class.prototype['panelContents'];
 
 api.reopenWidget('search-menu', {
-  tagName: 'div',
-
   buildKey: function(attrs) {
     let type = attrs.formFactor || 'menu'
     return `search-${type}`
