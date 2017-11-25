@@ -10,8 +10,8 @@
 
 .search-header {
   display: inline-block;
-  max-width: 610px;
-  width: 610px;
+  max-width: 680px;
+  width: 680px;
   margin-left: 20px;
   padding: 5px;
   position: relative;
@@ -28,7 +28,7 @@
   }
 
   .search-input {
-    width: 67%;
+    width: 60%;
     display: inline-block;
     margin-right: 10px;
   }
@@ -55,7 +55,7 @@
     background-color: $secondary;
     border-top: none;
     box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.5);
-    width: 67%;
+    width: 60%;
     position: absolute;
     top: 38px;
     white-space: normal;
