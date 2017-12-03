@@ -23,7 +23,7 @@ SiteHeader.reopen({
     const searchWidthStr = getStyleSheetPropertyValue('.search-header', 'width');
     const searchWidth = searchWidthStr ? parseInt(searchWidthStr) : 600; // needs a backup
     const showHeaderSearch = headerWidth > (panelWidth + logoWidth + searchWidth + 30); // 30 is a buffer
-    const appController = container.lookup('controller:application');
+    const appController = api.container.lookup('controller:application');
     const currentState = appController.get('showHeaderSearch');
 
     appController.set('showHeaderSearch', showHeaderSearch)
