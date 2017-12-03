@@ -9,7 +9,10 @@ SiteHeader.reopen({
 
     const $searchHeader = $('<div class="search-header"/>').hide().appendTo("body");
     const searchWidth = parseInt($searchHeader.css("width"));
+    console.log(searchWidth)
     $searchHeader.remove();
+
+    console.log(headerWidth, panelWidth, logoWidth, searchWidth, headerWidth > (panelWidth + logoWidth + searchWidth + 30))
 
     const showHeaderSearch = headerWidth > (panelWidth + logoWidth + searchWidth + 30); // 30 is a buffer
     const appController = api.container.lookup('controller:application');
