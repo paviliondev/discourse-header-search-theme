@@ -122,7 +122,7 @@ api.reopenWidget('search-menu', {
 })
 
 api.decorateWidget('home-logo:after', function(helper) {
-  const header = helper.widget.parentWidget,
+  const header = helper.widget.parentWidget.parentWidget,
         appController = helper.register.lookup('controller:application'),
         showHeaderSearch = appController.get('showHeaderSearch'),
         searchMenuVisible = header.state.searchVisible;
