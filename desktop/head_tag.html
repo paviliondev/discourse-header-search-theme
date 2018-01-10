@@ -1,7 +1,6 @@
 <script type="text/discourse-plugin" version='0.8.9'>
 
-const SiteHeader = require('discourse/components/site-header').default;
-SiteHeader.reopen({
+api.modifyClass('component:site-header', {
   toggleVisibility: function(topicToggled) {
     const headerWidth = this.$('.d-header .contents').width();
     const panelWidth = this.$('.d-header .panel').width();
@@ -11,12 +10,13 @@ SiteHeader.reopen({
     const searchWidth = parseInt($searchHeader.css("width"));
     $searchHeader.remove();
 
-    const showHeaderSearch = headerWidth > (panelWidth + logoWidth + searchWidth + 30); // 30 is a buffer
     const appController = api.container.lookup('controller:application');
     const currentState = appController.get('showHeaderSearch');
+    const hideHeaderSearch = this.get('hideHeaderSearch');
+    const showHeaderSearch = !hideHeaderSearch && (headerWidth > (panelWidth + logoWidth + searchWidth + 30)); // 30 is a buffer
 
     appController.set('showHeaderSearch', showHeaderSearch)
-    if (topicToggled || ((showHeaderSearch != currentState) || currentState === undefined)) {
+    if (topicToggled || ((showHeaderSearch !== currentState) || currentState === undefined)) {
       this.queueRerender();
       Ember.run.scheduleOnce('afterRender', () => {
         $('.d-header').toggleClass('header-search-enabled',
@@ -112,11 +112,15 @@ api.reopenWidget('search-menu', {
   panelContents: function() {
     const formFactor = this.state.formFactor;
     let showHeaderResults = this.state.showHeaderResults == null || this.state.showHeaderResults === true;
-    let contents = [this.attach('button', {
-        icon: 'search',
-        className: 'search-icon',
-        action: 'showResults'
-    })];
+    let contents = [];
+
+    if (formFactor === 'header') {
+      contents.push(this.attach('button', {
+          icon: 'search',
+          className: 'search-icon',
+          action: 'showResults'
+      }));
+    }
 
     contents = contents.concat(...corePanelContents.call(this));
 
