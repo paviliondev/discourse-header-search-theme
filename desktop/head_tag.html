@@ -1,4 +1,4 @@
-<script type="text/discourse-plugin" version='0.8.9'>
+<script type="text/discourse-plugin" version='0.8.13'>
 
 api.modifyClass('component:site-header', {
   toggleVisibility: function(topicToggled) {
@@ -6,7 +6,7 @@ api.modifyClass('component:site-header', {
     const panelWidth = this.$('.d-header .panel').width();
     const logoWidth = this.$('.d-header .title a').width();
 
-    const $searchHeader = $('<div class="search-header"/>').hide().appendTo("body");
+    const $searchHeader = $('<div class="search-header"/>').hide().appendTo(".d-header .title");
     const searchWidth = parseInt($searchHeader.css("width"));
     $searchHeader.remove();
 
@@ -19,9 +19,11 @@ api.modifyClass('component:site-header', {
     if (topicToggled || ((showHeaderSearch !== currentState) || currentState === undefined)) {
       this.queueRerender();
       Ember.run.scheduleOnce('afterRender', () => {
-        $('.d-header').toggleClass('header-search-enabled',
+        const $header = $('.d-header');
+        $header.toggleClass('header-search-enabled',
           !$('.panel > .search-menu').length && showHeaderSearch && !this._topic
         );
+        $header.toggleClass('align-right', settings.align_right);
       });
     }
   },
