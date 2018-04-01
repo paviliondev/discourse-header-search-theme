@@ -2,8 +2,8 @@
   display: flex;
 }
 
-.header-search-enabled .panel {
-  align-items: start;
+.d-header .header-buttons {
+  margin-top: .1em;
 }
 
 .header-search-enabled .search-header a, .header-search-enabled .search-header a:visited {
@@ -17,6 +17,7 @@
 .header-search-enabled.align-right .contents {
    display: flex;
    justify-content: space-between;
+   align-items: start;
 
    &:before, &:after {
      display: none;
@@ -48,7 +49,7 @@
 .title .search-header {
   width: 350px;
   margin-left: 20px;
-  margin-top: 5px;
+  margin-top: 4px;
   position: relative;
   white-space: nowrap;
 
