@@ -1,5 +1,6 @@
 {
   "name": "Header Search",
   "about_url": "https://meta.discourse.org/t/header-search-plugin/36435",
-  "license_url": "https://github.com/angusmcleod/discourse-header-search/blob/master/LICENSE.txt"
+  "license_url": "https://github.com/angusmcleod/discourse-header-search/blob/master/LICENSE.txt",
+  "component": true
 }
