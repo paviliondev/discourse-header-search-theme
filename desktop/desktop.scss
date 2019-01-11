@@ -17,7 +17,6 @@
 .header-search-enabled.align-right .contents {
    display: flex;
    justify-content: space-between;
-   align-items: start;
 
    &:before, &:after {
      display: none;
@@ -29,8 +28,8 @@
    }
 
    .search-header {
-     margin-left: 0;
-     margin-right: 10px;
+     align-self: flex-start;
+     margin: 10px 0 0 10px;
    }
 
    .search-input {
