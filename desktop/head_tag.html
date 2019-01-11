@@ -63,7 +63,7 @@ api.reopenWidget('search-menu', {
     const showHeaderResults = this.state.showHeaderResults;
     let classes = [`search-${formFactor}`];
     if (formFactor === 'header' && showHeaderResults) {
-        classes.push('show-header-results');
+      classes.push('show-header-results');
     }
     return classes;
   },
@@ -125,6 +125,13 @@ api.reopenWidget('search-menu', {
     }
 
     contents = contents.concat(...corePanelContents.call(this));
+
+    let results = contents.find(w => w.name == 'search-menu-results');
+    if (results && results.attrs.results) {
+      $('.search-menu.search-header').addClass('has-results');
+    } else {
+      $('.search-menu.search-header').removeClass('has-results');
+    }
 
     if (formFactor === 'menu' || showHeaderResults) {
       return contents;
