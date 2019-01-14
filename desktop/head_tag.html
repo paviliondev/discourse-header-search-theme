@@ -115,6 +115,8 @@ api.reopenWidget('search-menu', {
     const formFactor = this.state.formFactor;
 
     if (formFactor === 'header') {
+      $('#search-term').val('');
+      $('.search-placeholder').css('visibility', 'visible');
       this.state.showHeaderResults = false;
       this.scheduleRerender();
     }
