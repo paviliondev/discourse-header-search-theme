@@ -144,10 +144,6 @@ api.reopenWidget('search-menu', {
     if (formFactor === 'menu' || showHeaderResults) {
       return contents;
     } else {
-      Ember.run.scheduleOnce('afterRender', this, () => {
-        $('#search-term').val('');
-      })
-
       return contents.filter((widget) => {
         return widget.name != 'search-menu-results' && widget.name != 'search-context';
       });
