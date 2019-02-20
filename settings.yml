@@ -2,3 +2,8 @@ align_right:
   default: false
   type: bool
   description: "Align the header search on the right of the header"
+
+custom_breakpoint:
+  default: 0
+  type: integer
+  description: "Custom responsive breakpoint. Set 0 to disable."

@@ -13,7 +13,13 @@ api.modifyClass('component:site-header', {
     const appController = api.container.lookup('controller:application');
     const currentState = appController.get('showHeaderSearch');
     const hideHeaderSearch = this.get('hideHeaderSearch');
-    const showHeaderSearch = !hideHeaderSearch && (headerWidth > (panelWidth + logoWidth + searchWidth + 30)); // 30 is a buffer
+
+    let breakpoint = panelWidth + logoWidth + searchWidth + 30;
+    if (settings.custom_breakpoint) {
+      breakpoint = settings.custom_breakpoint;
+    }
+
+    const showHeaderSearch = !hideHeaderSearch && (headerWidth > breakpoint);
 
     appController.set('showHeaderSearch', showHeaderSearch)
     if (topicToggled || ((showHeaderSearch !== currentState) || currentState === undefined)) {
