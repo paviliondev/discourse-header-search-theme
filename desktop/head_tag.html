@@ -94,7 +94,13 @@ api.reopenWidget('search-menu', {
     }
   },
 
-  clickOutside: function() {
+  clickOutside() {
+    if (!this.vnode.hooks['widget-mouse-down-outside']) {
+      return this.mouseDownOutside();
+    }
+  },
+
+  mouseDownOutside() {
     const formFactor = this.state.formFactor;
 
     if (formFactor === 'menu') {
