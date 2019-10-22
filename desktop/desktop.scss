@@ -3,10 +3,11 @@
 }
 
 .d-header .header-buttons {
-  margin-top: .1em;
+  margin-top: 0.1em;
 }
 
-.header-search-enabled .search-header a, .header-search-enabled .search-header a:visited {
+.header-search-enabled .search-header a,
+.header-search-enabled .search-header a:visited {
   color: $tertiary;
 }
 
@@ -15,40 +16,42 @@
 }
 
 .header-search-enabled.align-right .contents {
-   display: flex;
-   justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 
-   &:before, &:after {
-     display: none;
-   }
+  &:before,
+  &:after {
+    display: none;
+  }
 
-   .title {
-     flex: 1 1 auto;
-     justify-content: space-between;
-   }
+  .title {
+    flex: 1 1 auto;
+    justify-content: space-between;
+  }
 
-   .search-header {
-     align-self: flex-start;
-     margin: 15px 0 0 10px;
-   }
+  .search-header {
+    align-self: flex-start;
+    margin: 15px 0 0 10px;
+  }
 
-   .search-input {
-     margin-right: 0;
-   }
+  .search-input {
+    margin-right: 0;
+  }
 
-   .search-context {
-     padding-top: 5px;
-   }
+  .search-context {
+    padding-top: 5px;
+  }
 
-   .results {
-     right: 0;
-   }
+  .results {
+    right: 0;
+  }
 }
 
 .title .search-header {
   width: 350px;
   margin-left: 20px;
-  margin-top: 4px;
+  margin-top: 14px;
+  align-self: flex-start;
   position: relative;
   white-space: nowrap;
 
@@ -84,7 +87,7 @@
     padding: 5px;
 
     label {
-        float: left;
+      float: left;
     }
   }
 
@@ -92,6 +95,25 @@
     border-top: none;
     width: 100%;
     white-space: normal;
+
+    .main-results {
+      min-width: 0;
+      .search-result-topic {
+        width: 100%;
+        .topic {
+          max-width: 100%;
+        }
+        .badge-wrapper {
+          min-width: 0;
+        }
+      }
+    }
+
+    .secondary-results {
+      .badge-wrapper {
+        width: 100%;
+      }
+    }
 
     ul {
       list-style-type: none;
@@ -122,7 +144,10 @@
       .topic-statuses {
         float: none;
         display: inline-block;
-        color: dark-light-choose(scale-color($primary, $lightness: 50%), scale-color($secondary, $lightness: 50%));
+        color: dark-light-choose(
+          scale-color($primary, $lightness: 50%),
+          scale-color($secondary, $lightness: 50%)
+        );
         margin: 0;
         .fa {
           margin: 0;
@@ -141,7 +166,7 @@
       a {
         display: block;
         padding: 5px;
-        transition: all linear .15s;
+        transition: all linear 0.15s;
       }
 
       &:hover a:not(.badge-notification) {
