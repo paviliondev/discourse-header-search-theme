@@ -6,7 +6,7 @@ api.modifyClass('component:site-header', {
     const panelWidth = this.$('.d-header .panel').width();
     const logoWidth = this.$('.d-header .title a').width();
 
-    const $searchHeader = $('<div class="search-header"/>').hide().appendTo(setting.header_insertion_class);
+    const $searchHeader = $('<div class="search-header"/>').hide().appendTo(settings.header_insertion_class);
     const searchWidth = parseInt($searchHeader.css("width"));
     $searchHeader.remove();
 
