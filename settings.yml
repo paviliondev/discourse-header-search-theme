@@ -7,3 +7,7 @@ custom_breakpoint:
   default: 0
   type: integer
   description: "Custom responsive breakpoint. Set 0 to disable."
+  
+header_insertion_class:
+  default: ".d-header .title"
+  description: "Class to append search container to."
