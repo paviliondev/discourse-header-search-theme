@@ -1,6 +1,7 @@
 <script type="text/discourse-plugin" version='0.8.13'>
 
 api.modifyClass('component:site-header', {
+  pluginId: "discourse-header-search-theme",
   toggleVisibility: function(topicToggled) {
     const headerWidth = this.$('.d-header .contents').width();
     const panelWidth = this.$('.d-header .panel').width();
@@ -74,7 +75,7 @@ api.reopenWidget('search-menu', {
       classes.push('show-header-results');
     }
 
-    const service = this.register.lookup("search-service:main");
+    const service = this.register.lookup("service:search");
     const ctx = service.get("searchContext");
     if (ctx) {
       classes.push('has-context');
