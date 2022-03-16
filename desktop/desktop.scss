@@ -72,9 +72,10 @@
 
   .search-icon {
     float: right;
+    margin-top: 1px;
     border: 1px solid mix($primary, $secondary);
     border-left: none;
-    height: 32px;
+    height: 35px;
   }
 
   .search-input {
