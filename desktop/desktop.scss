@@ -15,6 +15,10 @@
   display: none;
 }
 
+.d-header.header-search-enabled .title:not(.title--minimized) {
+  overflow: unset;
+}
+
 .header-search-enabled.align-right .contents {
   display: flex;
   justify-content: space-between;
@@ -75,7 +79,7 @@
     margin-top: 1px;
     border: 1px solid mix($primary, $secondary);
     border-left: none;
-    height: 35px;
+    height: 34px;
   }
 
   .search-input {
