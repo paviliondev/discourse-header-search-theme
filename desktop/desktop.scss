@@ -8,7 +8,7 @@
 
 .header-search-enabled .search-header a,
 .header-search-enabled .search-header a:visited {
-  color: $tertiary;
+  color: var(--tertiary);
 }
 
 .header-search-enabled #search-button {
@@ -61,11 +61,11 @@
 
   &.show-header-results {
     box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.5);
-    background-color: $secondary;
+    background-color: var(--secondary);
   }
 
   #search-term {
-    background-color: $secondary;
+    background-color: var(--secondary);
     margin: 0;
     width: 100%;
   }
